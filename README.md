@@ -1,6 +1,6 @@
-# PySpark ETL Project
+# PySpark ETL Sample Project
 
-This project demonstrates a simple ETL job using PySpark to read a CSV file and display the top 10 rows.
+This is a sample project created for demonstrating PySpark ETL operations. It showcases a simple ETL job using PySpark to read a CSV file and display the top 10 rows.
 
 ## Project Structure
 
@@ -13,24 +13,29 @@ This project demonstrates a simple ETL job using PySpark to read a CSV file and 
   - `io/`: Reading from and writing to S3, HDFS, or databases
 - `tests/`: Unit and integration tests
 - `pyproject.toml`: Modern Python build and dependency management
-- `requirements.txt`: List of Python dependencies
 
 ## Setup
 
-1. Install Python dependencies:
+1. Ensure you have `uv` installed for managing Python dependencies. Install it if needed:
    ```bash
-   pip install -r requirements.txt
+   pip install uv
+   ```
+   Learn more about [uv](https://github.com/astral-sh/uv?tab=readme-ov-file)
+
+2. Install Python dependencies using uv:
+   ```bash
+   uv sync
    ```
 
-2. Ensure you have Apache Spark installed and the Spark Connect server running locally.
+3. Ensure you have Apache Spark 4.1.1 installed and SPARK_HOME set and the Spark Connect server running locally.
 
    To start the Spark Connect server:
    ```bash
-   $SPARK_HOME/sbin/start-connect-server.sh --packages org.apache.spark:spark-connect_2.12:3.4.0
+   $SPARK_HOME/sbin/start-connect-server.sh
    ```
-   Replace `3.4.0` with your Spark version if different.
+   Learn more about [Spark Connect](https://spark.apache.org/docs/latest/spark-connect-overview.html)
 
-3. The project uses `pyspark-client` for connecting to the Spark Connect server.
+4. The project uses `pyspark-client` 4.1.1 for connecting to the Spark Connect server.
 
 ## Running the ETL Job
 
@@ -38,7 +43,7 @@ This project demonstrates a simple ETL job using PySpark to read a CSV file and 
 
 2. Run the main ETL script:
    ```bash
-   python jobs/main_etl.py
+   uv run jobs/main_etl.py
    ```
 
 This will read the CSV file, apply transformations, and display the top 10 rows.
@@ -47,5 +52,5 @@ This will read the CSV file, apply transformations, and display the top 10 rows.
 
 Run tests with:
 ```bash
-pytest tests/
+uv run pytest tests/
 ```
