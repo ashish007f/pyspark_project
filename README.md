@@ -20,7 +20,7 @@ This is a sample project created for demonstrating PySpark ETL operations. It sh
    ```bash
    pip install uv
    ```
-   Learn more about [uv](https://github.com/astral-sh/uv?tab=readme-ov-file)
+   Learn more about [uv](https://docs.astral.sh/uv/getting-started/installation/#standalone-installer)
 
 2. Install Python dependencies using uv:
    ```bash
